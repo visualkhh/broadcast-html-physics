@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script>
+
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+
+    var y = 0;
+    var x = 0;
+    var speed = 5;
+
+    $(function() {
+        setInterval(drawArc, 100);
+    });
+
+
+    function drawArc() {
+        clearCanvas();
+        // drawXArc();
+        drawYArc('red')
+        // drawYArc('blue')
+        // drawYArc('white')
+        // drawYArc('gold')
+        // // drawYArc('black')
+        // drawYArc('pink')
+        // drawYArc('cyan')
+        // drawYArc('yellow')
+    }
+
+
+    function drawYArc(color) {
+        if (y > 500) {
+            speed = -5;
+        }else if(y < 0) {
+            speed = 5;
+        }
+        y = y + speed;
+        speed = speed + (speed * 0.2);
+        ctx.beginPath();
+        ctx.arc(250,  y, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        if(color)
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+    function drawXArc() {
+        if (x > 500) {
+            speed = -5;
+        }else if(x < 0) {
+            speed = 5;
+        }
+        x = x + speed;
+        speed = speed + (speed * 0.2);
+        ctx.beginPath();
+        ctx.arc(x, 250, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+
+    // function clearCanvas() {
+    //     //clear
+    //     // Store the current transformation matrix
+    //     ctx.save();
+    //     ctx.fillStyle = 'black'
+    //     ctx.fill();
+    //     // Use the identity matrix while clearing the canvas
+    //     ctx.setTransform(1, 0, 0, 1, 0, 0);
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     // Restore the transform
+    //     ctx.restore();
+    // }
+    function clearCanvas() {
+        //clear
+        // Store the current transformation matrix
+        ctx.save();
+        ctx.rect(0, 0, 500, 500);
+        ctx.fillStyle = 'black'
+        ctx.fill();
+        // Use the identity matrix while clearing the canvas
+        // ctx.setTransform(1, 0, 0, 1, 0, 0);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Restore the transform
+        ctx.restore();
+    }
+</script>
+
+</html>

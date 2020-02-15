@@ -1,0 +1,29 @@
+{
+  "name": "lib-typescript",
+  "version": "1.0.0",
+  "description": "tsc\r =============\r ### tsconfig.json\r  - tsc -init",
+  "main": "index.js",
+  "dependencies": {
+    "@types/core-js": "^2.5.0",
+    "@types/node": "^10.5.2",
+    "@types/rx": "^4.1.1",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visualkhh/lib-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/visualkhh/lib-typescript/issues"
+  },
+  "homepage": "https://github.com/visualkhh/lib-typescript#readme"
+}
